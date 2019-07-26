@@ -7,6 +7,9 @@ Vue.config.productionTip = false
 
 import '@/assets/css/reset.css'
 import '@/assets/js/rem.js'
+
+import { Icon,Tabbar,TabbarItem,NavBar  } from 'vant';
+Vue.use(Icon).use(Tabbar).use(TabbarItem).use(NavBar)
 new Vue({
   router,
   store,

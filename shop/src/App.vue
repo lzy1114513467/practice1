@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav">
       <ul class="footbar">
         <li class="footbarItem">
           <router-link to="/">首页</router-link>
@@ -15,10 +15,26 @@
           <router-link to="shoppingcar">购物车</router-link>
           </li>
       </ul>
-    </div>
-    <router-view/>
+    </div> -->
+    
+  <van-tabbar v-model="active">
+    <van-tabbar-item icon="home-o" to="/">首页</van-tabbar-item>
+    <van-tabbar-item icon="cluster-o" to="classfy">分类</van-tabbar-item>
+    <van-tabbar-item icon="shopping-cart-o" to="shoppingcar">购物车</van-tabbar-item>
+    <van-tabbar-item icon="user-o" to="mine">我的</van-tabbar-item>
+  </van-tabbar>
+  <router-view/>
   </div>
 </template>
+<script>
+export default {
+  data(){
+    return{
+      active:0
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 .footbar{
