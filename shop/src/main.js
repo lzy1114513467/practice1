@@ -10,6 +10,8 @@ import '@/assets/js/rem.js'
 
 import { Icon,Tabbar,TabbarItem,NavBar,Swipe,SwipeItem,Lazyload  } from 'vant';
 Vue.use(Icon).use(Tabbar).use(TabbarItem).use(NavBar).use(Swipe).use(SwipeItem).use( Lazyload)
+
+import '@/mock/mock.js';
 new Vue({
   router,
   store,

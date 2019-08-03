@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import mine from './views/mine.vue'
 import classfy from './views/classfy.vue'
 import shoppingcar from './views/shoppingcar.vue'
+import ajax from './views/ajax.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -28,6 +29,10 @@ export default new Router({
       path:'/shoppingcar',
       name:'shoppingcar',
       component:shoppingcar
+    },{
+      path:'/ajax',
+      name:'ajax',
+      component:ajax
     }
   ]
 })

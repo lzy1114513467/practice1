@@ -30,8 +30,15 @@
       </swiper>
    </div>
    <!-- 推荐商品 -->
-   <div>
-     
+   <div class="varity">
+     <p>推荐商品</p>
+      <ul class="varity-ul" v-for="(item,index) in varityItem" :key="index">
+        <li class="varity-ul-item">
+          <img :src="item.img" alt="">
+          <div>{{item.name}}</div>
+          <div>{{item.price}}</div>
+        </li>
+      </ul>
    </div>
   </div>
 </template>
@@ -40,6 +47,8 @@
 import 'swiper/dist/css/swiper.css'
  
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import axios from 'axios'
+import url from '@/service.config.js'
 export default {
   data(){
     return{
@@ -111,23 +120,125 @@ export default {
       ],
       swiperOption: {
          slidesPerView:3
-        }
+        },
+        varityItem:[
+        //   {name:"手扶牧草收割机",
+        //   img:"http://www.nongji1688.com/file/upload/201905/07/0920193925858.jpg",
+        //  price:"3600",
+        //  company:"曲阜市重机械制造有限公司",
+        //  city:"曲阜市"
+        //  },{name:"手扶牧草收割机",
+        //   img:"http://www.nongji1688.com/file/upload/201905/07/0920193925858.jpg",
+        //  price:"3600",
+        //  company:"曲阜市重机械制造有限公司",
+        //  city:"曲阜市"
+        //  },{name:"手扶牧草收割机",
+        //   img:"http://www.nongji1688.com/file/upload/201905/07/0920193925858.jpg",
+        //  price:"3600",
+        //  company:"曲阜市重机械制造有限公司",
+        //  city:"曲阜市"
+        //  },{name:"手扶牧草收割机",
+        //   img:"http://www.nongji1688.com/file/upload/201905/07/0920193925858.jpg",
+        //  price:"3600",
+        //  company:"曲阜市重机械制造有限公司",
+        //  city:"曲阜市"
+        //  },{name:"手扶牧草收割机",
+        //   img:"http://www.nongji1688.com/file/upload/201905/07/0920193925858.jpg",
+        //  price:"3600",
+        //  company:"曲阜市重机械制造有限公司",
+        //  city:"曲阜市"
+        //  },{name:"手扶牧草收割机",
+        //   img:"http://www.nongji1688.com/file/upload/201905/07/0920193925858.jpg",
+        //  price:"3600",
+        //  company:"曲阜市重机械制造有限公司",
+        //  city:"曲阜市"
+        //  },{name:"手扶牧草收割机",
+        //   img:"http://www.nongji1688.com/file/upload/201905/07/0920193925858.jpg",
+        //  price:"3600",
+        //  company:"曲阜市重机械制造有限公司",
+        //  city:"曲阜市"
+        //  },{name:"手扶牧草收割机",
+        //   img:"http://www.nongji1688.com/file/upload/201905/07/0920193925858.jpg",
+        //  price:"3600",
+        //  company:"曲阜市重机械制造有限公司",
+        //  city:"曲阜市"
+        //  },{name:"手扶牧草收割机",
+        //   img:"http://www.nongji1688.com/file/upload/201905/07/0920193925858.jpg",
+        //  price:"3600",
+        //  company:"曲阜市重机械制造有限公司",
+        //  city:"曲阜市"
+        //  },{name:"手扶牧草收割机",
+        //   img:"http://www.nongji1688.com/file/upload/201905/07/0920193925858.jpg",
+        //  price:"3600",
+        //  company:"曲阜市重机械制造有限公司",
+        //  city:"曲阜市"
+        //  },{name:"手扶牧草收割机",
+        //   img:"http://www.nongji1688.com/file/upload/201905/07/0920193925858.jpg",
+        //  price:"3600",
+        //  company:"曲阜市重机械制造有限公司",
+        //  city:"曲阜市"
+        //  },{name:"手扶牧草收割机",
+        //   img:"http://www.nongji1688.com/file/upload/201905/07/0920193925858.jpg",
+        //  price:"3600",
+        //  company:"曲阜市重机械制造有限公司",
+        //  city:"曲阜市"
+        //  },{name:"手扶牧草收割机",
+        //   img:"http://www.nongji1688.com/file/upload/201905/07/0920193925858.jpg",
+        //  price:"3600",
+        //  company:"曲阜市重机械制造有限公司",
+        //  city:"曲阜市"
+        //  },{name:"手扶牧草收割机",
+        //   img:"http://www.nongji1688.com/file/upload/201905/07/0920193925858.jpg",
+        //  price:"3600",
+        //  company:"曲阜市重机械制造有限公司",
+        //  city:"曲阜市"
+        //  },{name:"手扶牧草收割机",
+        //   img:"http://www.nongji1688.com/file/upload/201905/07/0920193925858.jpg",
+        //  price:"3600",
+        //  company:"曲阜市重机械制造有限公司",
+        //  city:"曲阜市"
+        //  },{name:"手扶牧草收割机",
+        //   img:"http://www.nongji1688.com/file/upload/201905/07/0920193925858.jpg",
+        //  price:"3600",
+        //  company:"曲阜市重机械制造有限公司",
+        //  city:"曲阜市"
+        //  },{name:"手扶牧草收割机",
+        //   img:"http://www.nongji1688.com/file/upload/201905/07/0920193925858.jpg",
+        //  price:"3600",
+        //  company:"曲阜市重机械制造有限公司",
+        //  city:"曲阜市"
+        //  },
+        ]
       
     }
   },
   components: {
     swiper,
     swiperSlide
-  }
+  }, 
+  created() {
+    let url1 = 'https://api.apiopen.top/getWangYiNews'
+    let url2 =  'http://www.lzy.com/getlist'
+    let url3 =  url.getvarityItem;
+    axios.get(url3).then(
+      (res)=>{
+        console.log(res);
+        this.varityItem = res.data;
+      }
+    ).catch(
+      (err)=>{
+        console.log("错误");
+      }
+    );
+  },
 }
 </script>
 <style lang="scss">
 .containner{
   background: #ccc;
-  
+ 
+  margin-bottom: 2rem;
 }
-
-
 .nav-title{
   position: fixed;
   top: 0;
@@ -161,6 +272,29 @@ export default {
         img{
           width: 3rem;
           height: 3rem;
+        }
+      }
+    }
+  }
+  //推荐商品
+  .varity{
+    padding-left: 0.2rem;
+    margin-top: 0.2rem;
+    background-color: white;
+    display:block;
+    overflow:hidden;
+    
+    &-ul{
+      float: left;
+      text-align: center;
+      
+      &-item{
+       
+        margin: 0 auto;
+         margin-left: 1.2rem;
+        img{
+          width: 4rem;
+          height: 4rem;
         }
       }
     }
